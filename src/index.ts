@@ -15,15 +15,19 @@ console.log(endungen)
 
 // Step 3. Sort files based on conditions.
 
-for (const endung of endungen) {
+endungen.forEach(endung => {
     try {
         fs.mkdirSync('./output/' + endung)
     } catch (e) {
         console.error("Das Verzeichnis existiert schon.")
     }
-}
+})
 
 inhalteOrdner.forEach(file => {
     const ext = path.extname(file)
-    fs.copyFileSync('./input/' + file, './output/' + ext + '/' + file)
+    try {
+        fs.copyFileSync('./input/' + file, './output/' + ext + '/' + file)
+    } catch (e) {
+        console.error(e)
+    }
 })
