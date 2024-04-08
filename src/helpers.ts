@@ -2,7 +2,7 @@ import * as path from 'node:path'
 import * as fs from 'node:fs'
 
 
-export function extractFileExtensions(dirContent: string[]) {
+export function dateiEndungenErstellen(dirContent: string[]) {
 
     const extensions = new Set<string>();
 
